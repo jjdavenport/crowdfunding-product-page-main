@@ -6,12 +6,15 @@ const select = document.querySelectorAll(".select");
 const radioBtn = document.querySelectorAll(`input[type="radio"]`);
 const selected = document.getElementById("selected");
 const nav = document.getElementById("nav");
+const stock = document.querySelectorAll(".stock");
+const continueBtn = document.getElementById("continue-button");
+const success = document.getElementById("success");
+const bookmarkBtn = document.getElementById("bookmark-button");
 
 selectBtn.forEach((selectBtn) => {
   selectBtn.addEventListener("click", () => {
     const btnText = selectBtn.innerText;
     if (btnText === "Out of Stock") {
-      console.log("click");
     } else {
       dialog.classList.add("dialog-active");
     }
@@ -41,4 +44,30 @@ radioBtn.forEach((radioBtn, i) => {
     }
     selected.classList.add("selected-active");
   });
+});
+
+function noStock() {
+  stock.forEach((stock) => {
+    const stockVal = stock.innerText;
+    if (stockVal === "0 left") {
+      stock.parentNode.classList.add("no-stock");
+    }
+  });
+}
+
+noStock();
+
+continueBtn.addEventListener("click", () => {
+  dialog.classList.remove("dialog-active");
+  success.classList.add("success-active");
+});
+
+bookmarkBtn.addEventListener("click", () => {
+  const bookmarkText = document.getElementById("bookmark-text");
+  if (bookmarkText.innerText === "Bookmarked") {
+    bookmarkText.innerText = "Bookmark";
+  } else {
+    bookmarkText.innerText = "Bookmarked";
+  }
+  bookmarkBtn.classList.toggle("bookmark-active");
 });

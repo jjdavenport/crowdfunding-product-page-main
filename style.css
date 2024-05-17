@@ -39,6 +39,10 @@ body {
   display: block;
 }
 
+.bookmark-active {
+  background: cyan;
+}
+
 .nav {
   display: none;
 }
@@ -59,6 +63,10 @@ dialog {
   display: none;
 }
 
+.success-active {
+  display: block;
+}
+
 .selected {
   display: none;
 }
@@ -69,4 +77,8 @@ dialog {
 
 .select-active {
   border: 1px solid black;
+}
+
+.no-stock {
+  border: 1px solid red;
 }
