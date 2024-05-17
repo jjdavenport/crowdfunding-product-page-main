@@ -2,10 +2,71 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  background-image: url(./images/image-hero-mobile.jpg);
+}
+
+.menu {
+  border: none;
+  background: none;
+}
+
+#menu-button-close,
+#menu-button-open {
+  background: none;
+  border: none;
+}
+
+.menu-button-close {
+  display: none;
+}
+
+.menu-hide {
+  display: none;
+}
+
+.menu-active {
+  display: block;
+}
+
+.nav {
+  display: none;
+}
+
+.nav-active {
+  display: block;
+}
+
+dialog {
+  display: none;
+}
+
+.dialog-active {
+  display: block;
+}
+
+.success {
+  display: none;
+}
+
+.selected {
+  display: none;
+}
+
+.selected-active {
+  display: block;
+}
+
+.select-active {
+  border: 1px solid black;
 }
