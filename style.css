@@ -16,6 +16,10 @@ body {
   background-image: url(./images/image-hero-mobile.jpg);
 }
 
+#bookmark-text {
+  display: none;
+}
+
 .menu {
   border: none;
   background: none;
@@ -80,5 +84,11 @@ dialog {
 }
 
 .no-stock {
-  border: 1px solid red;
+  color: hsl(0, 0%, 48%);
+}
+
+@media screen and (width >= 40rem) {
+  #bookmark-text {
+    display: block;
+  }
 }

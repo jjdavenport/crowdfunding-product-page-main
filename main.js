@@ -10,6 +10,9 @@ const stock = document.querySelectorAll(".stock");
 const continueBtn = document.getElementById("continue-button");
 const success = document.getElementById("success");
 const bookmarkBtn = document.getElementById("bookmark-button");
+const modalBtnClose = document.getElementById("modal-button-close");
+const gotItBtn = document.getElementById("got-it-button");
+const input = document.querySelectorAll(".input");
 
 selectBtn.forEach((selectBtn) => {
   selectBtn.addEventListener("click", () => {
@@ -51,6 +54,13 @@ function noStock() {
     const stockVal = stock.innerText;
     if (stockVal === "0 left") {
       stock.parentNode.classList.add("no-stock");
+      const selectWrap = stock.closest(".select");
+      if (selectWrap) {
+        const radioButton = selectWrap.querySelector('input[type="radio"]');
+        if (radioButton) {
+          radioButton.disabled = true;
+        }
+      }
     }
   });
 }
@@ -71,3 +81,39 @@ bookmarkBtn.addEventListener("click", () => {
   }
   bookmarkBtn.classList.toggle("bookmark-active");
 });
+
+modalBtnClose.addEventListener("click", () => {
+  dialog.classList.remove("dialog-active");
+});
+
+gotItBtn.addEventListener("click", () => {
+  success.classList.remove("success-active");
+  let inputValue = 0;
+  const totalBackers = document.getElementById("total-backers");
+  const totalRaised = document.getElementById("total-raised");
+  let currentRaised = parseInt(totalRaised.innerText.replace(/[^0-9]/g, ""));
+  let currentBackers = parseInt(totalBackers.innerText.replace(/[^0-9]/g, ""));
+  const selectedI = document.querySelector(".select-active .input");
+  if (selectedI) {
+    inputValue += parseInt(selectedI.value);
+  }
+  currentRaised += inputValue;
+  currentBackers++;
+  totalRaised.innerText = `$${currentRaised.toLocaleString()}`;
+  totalBackers.innerText = currentBackers.toLocaleString();
+});
+
+const selectArray = [
+  {
+    input: null,
+  },
+  {
+    input: 25,
+  },
+  {
+    input: 75,
+  },
+  {
+    input: 200,
+  },
+];
