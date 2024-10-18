@@ -1,28 +1,26 @@
 import logo from "./assets/logo.svg";
-import { useMediaQuery } from "react-responsive";
 import menuIcon from "./assets/icon-hamburger.svg";
 import { useState } from "react";
 import MobileMenu from "./mobile-menu";
+import closeIcon from "./assets/icon-close-menu.svg";
 
-const Nav = () => {
+const Nav = ({ desktop }) => {
   const [menu, setMenu] = useState(false);
   const toggle = () => setMenu(!menu);
-  const desktop = useMediaQuery({ minWidth: 768 });
-
   if (desktop) {
     return (
       <>
-        <nav className="bg-mobile md:bg-desktop">
-          <img src={logo} />
-          <ul>
+        <nav className="flex h-96 w-full justify-between bg-desktop p-4 text-white">
+          <img className="h-4 object-contain" src={logo} />
+          <ul className="flex gap-4">
             <li>
-              <a href="#"></a>
+              <a href="#">About</a>
             </li>
             <li>
-              <a href="#"></a>
+              <a href="#">Discover</a>
             </li>
             <li>
-              <a href="#"></a>
+              <a href="#">Get Started</a>
             </li>
           </ul>
         </nav>
@@ -32,10 +30,10 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="bg-mobile md:bg-desktop">
-        <img src={logo} />
-        <button onClick={toggle}>
-          <img src={menuIcon} />
+      <nav className="flex h-96 w-full justify-between bg-mobile bg-cover p-4">
+        <img className="h-4 object-contain" src={logo} />
+        <button className="h-4 w-4" onClick={toggle}>
+          <img className="object-contain" src={menu ? closeIcon : menuIcon} />
         </button>
       </nav>
       {menu && <MobileMenu onClick={toggle} />}

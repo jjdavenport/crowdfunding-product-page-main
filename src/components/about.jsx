@@ -3,8 +3,8 @@ import Pledge from "./pledge";
 const About = () => {
   return (
     <>
-      <article>
-        <h2>About this project</h2>
+      <article className="flex w-10/12 flex-col gap-6 rounded-xl p-8 shadow-md">
+        <h2 className="text-2xl font-bold">About this project</h2>
         <p>
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
           that elevates your screen to a more comfortable viewing height.
@@ -17,9 +17,9 @@ const About = () => {
           extra desk space below your computer to allow notepads, pens, and USB
           sticks to be stored under the stand.
         </p>
-        <ul>
+        <ul className="flex flex-col gap-8">
           <Pledge
-            title="Bamboo Stand Pledge"
+            title="Bamboo Stand"
             pledge="$25"
             paragraph="You get an ergonomic stand made of natural bamboo. You've helped us
             launch our promotional campaign, and you’ll be added to a special
@@ -27,7 +27,7 @@ const About = () => {
             amount="101"
           />
           <Pledge
-            title="Black Edition Stand Pledge"
+            title="Black Edition Stand"
             pledge="$75"
             paragraph="You get a
             Black Special Edition computer stand and a personal thank you. You’ll be
@@ -35,7 +35,7 @@ const About = () => {
             amount="64"
           />
           <Pledge
-            title="Mahogany Special Edition Pledge"
+            title="Mahogany Special Edition"
             pledge="$200"
             paragraph="You get two Special
             Edition Mahogany stands, a Backer T-Shirt, and a personal thank you.

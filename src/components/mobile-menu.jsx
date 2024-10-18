@@ -1,21 +1,22 @@
-import closeIcon from "./assets/icon-close-modal.svg";
-
-const MobileMenu = ({ onClick }) => {
+const MobileMenu = () => {
   return (
     <>
-      <dialog className="block">
-        <button onClick={onClick}>
-          <img src={closeIcon} />
-        </button>
-        <ul>
-          <li>
-            <a href="#"></a>
+      <dialog className="top-20 block w-10/12 rounded-xl">
+        <ul className="divide-y-[1px]">
+          <li className="p-4">
+            <a className="font-bold" href="#">
+              About
+            </a>
           </li>
-          <li>
-            <a href="#"></a>
+          <li className="p-4">
+            <a className="font-bold" href="#">
+              Discover
+            </a>
           </li>
-          <li>
-            <a href="#"></a>
+          <li className="p-4">
+            <a className="font-bold" href="#">
+              Get Started
+            </a>
           </li>
         </ul>
       </dialog>
