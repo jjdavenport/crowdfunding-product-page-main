@@ -35,7 +35,7 @@ const Selected = ({
           <div className="flex w-full flex-col gap-1 p-4">
             <span>Enter your pledge</span>
             <div className="flex gap-4">
-              <label className="flex items-center gap-2 rounded-full p-2 text-darkGray outline outline-2 outline-darkGray">
+              <label className="flex items-center gap-2 rounded-full px-4 py-2 text-darkGray outline outline-2 outline-darkGray">
                 $
                 <input
                   className="w-20 focus:outline-none"
@@ -44,7 +44,7 @@ const Selected = ({
                 />
               </label>
               <button
-                className="rounded-full bg-moderateCyan p-3 font-bold text-white"
+                className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white"
                 onClick={onClick}
               >
                 Continue
