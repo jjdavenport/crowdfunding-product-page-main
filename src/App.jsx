@@ -13,6 +13,7 @@ function App() {
   const [selected, setSelected] = useState(null);
   const [complete, setComplete] = useState(false);
   const [value, setValue] = useState(89914);
+  const [backers, SetBackers] = useState(5007);
 
   const toggle = () => {
     setSelected(null);
@@ -30,6 +31,7 @@ function App() {
     setValue((prevVal) => prevVal + val);
     setSelect(false);
     setComplete(true);
+    SetBackers(backers + 1);
   };
 
   const reset = () => {
@@ -39,14 +41,14 @@ function App() {
   return (
     <>
       <div className="flex flex-col items-center gap-8 pb-10 font-custom text-base">
-        <Nav desktop={media} />
+        <Nav select={select} desktop={media} />
         <MasterCraft
           desktop={media}
           selected={selected}
           onSelect={onSelect}
           onClick={toggle}
         />
-        <Backed value={value} />
+        <Backed backers={backers} value={value} />
         <About onClick={onSelect} />
         {select && (
           <Select

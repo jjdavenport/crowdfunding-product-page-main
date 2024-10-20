@@ -23,11 +23,11 @@ const Selected = ({
 
   return (
     <>
-      <button
+      <li
         onClick={onSelect}
         className={`${amount === "0" ? "opacity-40" : null} ${selected ? "outline-moderateCyan" : "outline-darkGray"} flex flex-col gap-4 divide-y-2 rounded-lg text-start outline outline-2`}
       >
-        <div className="flex flex-col gap-2 p-4">
+        <button className="flex flex-col gap-2 p-4 text-left">
           <div className="flex items-center gap-2">
             <div className="flex h-4 w-4 items-center justify-center rounded-full outline outline-[1px] outline-darkGray">
               <div
@@ -43,7 +43,7 @@ const Selected = ({
           )}
           <p>{paragraph}</p>
           {amount && <span>{amount} left</span>}
-        </div>
+        </button>
         {selected && input && (
           <div className="flex w-full flex-col gap-1 p-4">
             <span>Enter your pledge</span>
@@ -69,7 +69,7 @@ const Selected = ({
             </div>
           </div>
         )}
-      </button>
+      </li>
     </>
   );
 };
