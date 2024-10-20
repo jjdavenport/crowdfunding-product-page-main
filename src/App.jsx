@@ -19,11 +19,21 @@ function App() {
   };
 
   const onSelect = (i) => {
-    setSelect(true);
+    if (!select) {
+      setSelect(true);
+    }
     setSelected(i);
   };
 
-  const reset = () => setComplete(false);
+  const onComplete = () => {
+    setSelect(false);
+    setComplete(true);
+  };
+
+  const reset = () => {
+    setComplete(false);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center gap-8 pb-10 font-custom text-base">
@@ -37,7 +47,12 @@ function App() {
         <Backed />
         <About onClick={onSelect} />
         {select && (
-          <Select selected={selected} onSelect={onSelect} onClose={toggle} />
+          <Select
+            selected={selected}
+            onComplete={onComplete}
+            onSelect={onSelect}
+            onClose={toggle}
+          />
         )}
         {complete && <Complete onClose={reset} />}
       </div>

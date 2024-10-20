@@ -1,7 +1,7 @@
 import Selected from "./selected";
 import closeIcon from "./assets/icon-close-modal.svg";
 
-const Select = ({ onClose, onSelect, selected }) => {
+const Select = ({ onClose, onSelect, selected, onComplete }) => {
   return (
     <>
       <dialog className="top-20 flex w-10/12 flex-col gap-4 rounded-lg p-8">
@@ -19,7 +19,7 @@ const Select = ({ onClose, onSelect, selected }) => {
           <Selected
             selected={selected === "no reward"}
             onSelect={() => onSelect("no reward")}
-            onClick={onSelect}
+            onClick={onComplete}
             title="Pledge with no reward"
             paragraph="Choose to support us
               without a reward if you simply believe in our project. As a backer, you
@@ -29,7 +29,7 @@ const Select = ({ onClose, onSelect, selected }) => {
           <Selected
             selected={selected === "bamboo stand"}
             onSelect={() => onSelect("bamboo stand")}
-            onClick={onSelect}
+            onClick={onComplete}
             title="Bamboo Stand"
             pledge="25"
             paragraph="You get an ergonomic stand made of natural bamboo.
@@ -41,7 +41,7 @@ const Select = ({ onClose, onSelect, selected }) => {
           <Selected
             selected={selected === "black edition"}
             onSelect={() => onSelect("black edition")}
-            onClick={onSelect}
+            onClick={onComplete}
             title="Black Edition Stand"
             pledge="75"
             paragraph="You get a Black Special Edition
