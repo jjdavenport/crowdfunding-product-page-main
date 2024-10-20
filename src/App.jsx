@@ -12,6 +12,7 @@ function App() {
   const [select, setSelect] = useState(false);
   const [selected, setSelected] = useState(null);
   const [complete, setComplete] = useState(false);
+  const [value, setValue] = useState(89914);
 
   const toggle = () => {
     setSelected(null);
@@ -25,7 +26,8 @@ function App() {
     setSelected(i);
   };
 
-  const onComplete = () => {
+  const onComplete = (val) => {
+    setValue((prevVal) => prevVal + val);
     setSelect(false);
     setComplete(true);
   };
@@ -44,7 +46,7 @@ function App() {
           onSelect={onSelect}
           onClick={toggle}
         />
-        <Backed />
+        <Backed value={value} />
         <About onClick={onSelect} />
         {select && (
           <Select
