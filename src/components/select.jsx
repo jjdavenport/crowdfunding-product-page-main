@@ -1,16 +1,13 @@
 import Selected from "./selected";
 import closeIcon from "./assets/icon-close-modal.svg";
-import { useState } from "react";
 
-const Select = ({ onClick, onSelect }) => {
-  const [selected, setSelected] = useState(null);
-  const select = (i) => setSelected(i);
+const Select = ({ onClose, onSelect, selected }) => {
   return (
     <>
       <dialog className="top-20 flex w-10/12 flex-col gap-4 rounded-lg p-8">
         <div className="flex justify-between">
           <h3 className="text-2xl font-bold">Back this project</h3>
-          <button onClick={onClick}>
+          <button onClick={onClose}>
             <img src={closeIcon} />
           </button>
         </div>
@@ -21,7 +18,7 @@ const Select = ({ onClick, onSelect }) => {
         <ul className="flex flex-col gap-4">
           <Selected
             selected={selected === "no reward"}
-            onSelect={() => select("no reward")}
+            onSelect={() => onSelect("no reward")}
             onClick={onSelect}
             title="Pledge with no reward"
             paragraph="Choose to support us
@@ -31,7 +28,7 @@ const Select = ({ onClick, onSelect }) => {
           />
           <Selected
             selected={selected === "bamboo stand"}
-            onSelect={() => select("bamboo stand")}
+            onSelect={() => onSelect("bamboo stand")}
             onClick={onSelect}
             title="Bamboo Stand"
             pledge="25"
@@ -43,7 +40,7 @@ const Select = ({ onClick, onSelect }) => {
           />
           <Selected
             selected={selected === "black edition"}
-            onSelect={() => select("black edition")}
+            onSelect={() => onSelect("black edition")}
             onClick={onSelect}
             title="Black Edition Stand"
             pledge="75"

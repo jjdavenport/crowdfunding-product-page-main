@@ -10,22 +10,36 @@ import { useMediaQuery } from "react-responsive";
 function App() {
   const media = useMediaQuery({ minWidth: 768 });
   const [select, setSelect] = useState(false);
+  const [selected, setSelected] = useState(null);
   const [complete, setComplete] = useState(false);
-  const toggle = () => setSelect(!select);
-  const selected = () => {
-    setSelect(false);
-    setComplete(true);
+
+  const toggle = () => {
+    setSelected(null);
+    setSelect(!select);
   };
-  const Completed = () => setComplete(false);
+
+  const onSelect = (i) => {
+    setSelect(true);
+    setSelected(i);
+  };
+
+  const reset = () => setComplete(false);
   return (
     <>
-      <div className="font-custom flex flex-col items-center gap-8 pb-10 text-base">
+      <div className="flex flex-col items-center gap-8 pb-10 font-custom text-base">
         <Nav desktop={media} />
-        <MasterCraft desktop={media} onClick={toggle} />
+        <MasterCraft
+          desktop={media}
+          selected={selected}
+          onSelect={onSelect}
+          onClick={toggle}
+        />
         <Backed />
-        <About />
-        {select && <Select onSelect={selected} onClick={toggle} />}
-        {complete && <Complete onClick={Completed} />}
+        <About onClick={onSelect} />
+        {select && (
+          <Select selected={selected} onSelect={onSelect} onClose={toggle} />
+        )}
+        {complete && <Complete onClose={reset} />}
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import checkIcon from "./assets/icon-check.svg";
 
-const Complete = ({ onClick }) => {
+const Complete = ({ onClose }) => {
   return (
     <>
       <dialog className="top-20 flex w-10/12 flex-col items-center gap-4 rounded-xl p-4 text-center">
@@ -13,7 +13,7 @@ const Complete = ({ onClick }) => {
         </p>
         <button
           className="rounded-full bg-moderateCyan px-8 py-3 text-white"
-          onClick={onClick}
+          onClick={onClose}
         >
           Got it!
         </button>
