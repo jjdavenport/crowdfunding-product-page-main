@@ -1,10 +1,27 @@
+import { useEffect } from "react";
 import checkIcon from "./assets/icon-check.svg";
 
 const Complete = ({ onClose }) => {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   return (
     <>
-      <dialog className="top-20 flex w-10/12 flex-col items-center gap-4 rounded-xl p-4 text-center">
-        <img className="w-2/12 object-contain" src={checkIcon} />
+      <div
+        className="fixed inset-0 z-40 bg-black bg-opacity-50"
+        onClick={onClose}
+      ></div>
+      <dialog className="fixed inset-0 z-50 m-auto flex w-10/12 max-w-md flex-col items-center gap-4 rounded-xl bg-white p-4 text-center">
+        <img
+          className="w-2/12 object-contain"
+          src={checkIcon}
+          alt="Check Icon"
+        />
         <span className="text-xl font-bold">Thanks for your support!</span>
         <p>
           Your pledge brings us one step closer to sharing Mastercraft Bamboo
