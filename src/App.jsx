@@ -40,7 +40,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-8 pb-10 font-custom text-base">
+      <div className="flex flex-col items-center gap-8 bg-darkGray bg-opacity-10 pb-10 font-custom text-base">
         <Nav complete={complete} select={select} desktop={media} />
         <MasterCraft
           desktop={media}

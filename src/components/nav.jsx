@@ -10,8 +10,8 @@ const Nav = ({ desktop, select, complete }) => {
   if (desktop) {
     return (
       <>
-        <nav className="flex h-96 w-full justify-between bg-desktop p-4 text-white">
-          <img className="h-4 object-contain" src={logo} />
+        <nav className="item flex h-96 w-full justify-between bg-desktop p-10 text-white">
+          <img className="h-6 object-contain" src={logo} />
           <ul className="flex gap-4">
             <li>
               <a href="#">About</a>
@@ -32,11 +32,11 @@ const Nav = ({ desktop, select, complete }) => {
     <>
       <nav className="flex h-96 w-full justify-between bg-mobile bg-cover p-4">
         <img
-          className={`${select || complete ? "z-0" : "z-50"} h-4 object-contain`}
+          className={`${select || complete ? "z-0" : "z-50"} h-6 object-contain`}
           src={logo}
         />
         <button
-          className={`${select || complete ? "z-0" : "z-50"} h-4 w-4`}
+          className={`${select || complete ? "z-0" : "z-50"} h-6 w-4`}
           onClick={toggle}
         >
           <img className="object-contain" src={menu ? closeIcon : menuIcon} />

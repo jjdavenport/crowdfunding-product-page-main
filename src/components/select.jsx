@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Selected from "./selected";
 import closeIcon from "./assets/icon-close-modal.svg";
 
 const Select = ({ onClose, onSelect, selected, onComplete }) => {
-  // Disable scrolling on the body when the modal is open
+  const [inputFocus, setInputFocus] = useState(null);
+
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
 
@@ -38,6 +39,8 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
               title="Pledge with no reward"
               paragraph="Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
               input={1}
+              inputFocus={inputFocus}
+              setInputFocus={setInputFocus}
             />
             <Selected
               selected={selected === "bamboo stand"}
@@ -48,6 +51,8 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
               paragraph="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
               input={25}
               amount={"101"}
+              inputFocus={inputFocus}
+              setInputFocus={setInputFocus}
             />
             <Selected
               selected={selected === "black edition"}
@@ -58,6 +63,8 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
               paragraph="You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
               input={75}
               amount="64"
+              inputFocus={inputFocus}
+              setInputFocus={setInputFocus}
             />
             <Selected
               title="Mahogany Special Edition Pledge $200 or more"

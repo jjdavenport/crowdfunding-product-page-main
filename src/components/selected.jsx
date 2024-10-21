@@ -10,8 +10,12 @@ const Selected = ({
   amount,
   onSelect,
   selected,
+  setInputFocus,
+  inputFocus,
 }) => {
   const [inputValue, setInputValue] = useState(input || 0);
+
+  const focus = () => setInputFocus(title);
 
   const change = (e) => {
     setInputValue(parseInt(e.target.rawValue, 10) || 0);
@@ -25,19 +29,25 @@ const Selected = ({
     <>
       <li
         onClick={onSelect}
-        className={`${amount === "0" ? "opacity-40" : null} ${selected ? "outline-moderateCyan" : "outline-darkGray"} flex flex-col gap-4 divide-y-2 rounded-lg text-start outline outline-2`}
+        className={`${
+          amount === "0" ? "pointer-events-none opacity-40" : ""
+        } ${selected ? "outline-moderateCyan" : "outline-darkGray"} flex flex-col gap-4 divide-y-2 rounded-lg text-start outline outline-2`}
       >
-        <button className="flex flex-col gap-2 p-4 text-left">
+        <button className="group flex flex-col gap-2 p-4 text-left">
           <div className="flex items-center gap-2">
-            <div className="flex h-4 w-4 items-center justify-center rounded-full outline outline-[1px] outline-darkGray">
+            <div className="flex h-4 w-4 items-center justify-center rounded-full outline outline-1 outline-darkGray group-hover:outline-darkCyan">
               <div
-                className={`${selected ? "bg-moderateCyan" : null} h-[10px] w-[10px] rounded-full`}
+                className={`${
+                  selected ? "bg-moderateCyan" : null
+                } h-[10px] w-[10px] rounded-full`}
               ></div>
             </div>
-            <span>{title}</span>
+            <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-darkCyan">
+              {title}
+            </span>
           </div>
           {pledge && (
-            <span className="font-medium text-moderateCyan">
+            <span className="font-medium text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan">
               Pledge ${pledge} or more
             </span>
           )}
@@ -48,20 +58,23 @@ const Selected = ({
           <div className="flex w-full flex-col gap-1 p-4">
             <span>Enter your pledge</span>
             <div className="flex gap-4">
-              <label className="flex items-center gap-2 rounded-full px-4 py-2 text-darkGray outline outline-2 outline-darkGray">
+              <label
+                className={`${inputFocus === title ? "outline-moderateCyan" : "outline-darkGray"} flex items-center gap-2 rounded-full px-4 py-2 text-darkGray outline outline-2`}
+              >
                 $
                 <Cleave
-                  className="w-20 focus:outline-none"
+                  className="w-20 font-bold text-black caret-moderateCyan focus:outline-none"
                   value={inputValue}
                   options={{
                     numeral: true,
                     numeralThousandsGroupStyle: "thousand",
                   }}
                   onChange={change}
+                  onFocus={focus}
                 />
               </label>
               <button
-                className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white"
+                className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white transition duration-300 ease-in-out hover:bg-darkCyan"
                 onClick={complete}
               >
                 Continue
