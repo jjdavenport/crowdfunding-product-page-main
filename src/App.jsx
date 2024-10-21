@@ -41,7 +41,7 @@ function App() {
   return (
     <>
       <div className="flex flex-col items-center gap-8 pb-10 font-custom text-base">
-        <Nav select={select} desktop={media} />
+        <Nav complete={complete} select={select} desktop={media} />
         <MasterCraft
           desktop={media}
           selected={selected}

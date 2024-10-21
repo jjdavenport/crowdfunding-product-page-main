@@ -4,7 +4,7 @@ import { useState } from "react";
 import MobileMenu from "./mobile-menu";
 import closeIcon from "./assets/icon-close-menu.svg";
 
-const Nav = ({ desktop, select }) => {
+const Nav = ({ desktop, select, complete }) => {
   const [menu, setMenu] = useState(false);
   const toggle = () => setMenu(!menu);
   if (desktop) {
@@ -32,11 +32,11 @@ const Nav = ({ desktop, select }) => {
     <>
       <nav className="flex h-96 w-full justify-between bg-mobile bg-cover p-4">
         <img
-          className={`${select ? "z-0" : "z-50"} h-4 object-contain`}
+          className={`${select || complete ? "z-0" : "z-50"} h-4 object-contain`}
           src={logo}
         />
         <button
-          className={`${select ? "z-0" : "z-50"} h-4 w-4`}
+          className={`${select || complete ? "z-0" : "z-50"} h-4 w-4`}
           onClick={toggle}
         >
           <img className="object-contain" src={menu ? closeIcon : menuIcon} />
