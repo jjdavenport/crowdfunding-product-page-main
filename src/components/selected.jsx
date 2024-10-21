@@ -30,11 +30,11 @@ const Selected = ({
       <li
         onClick={onSelect}
         className={`${
-          amount === "0" ? "pointer-events-none opacity-40" : ""
+          amount === "0" ? "pointer-events-none opacity-40" : null
         } ${selected ? "outline-moderateCyan" : "outline-darkGray"} flex flex-col gap-4 divide-y-2 rounded-lg text-start outline outline-2`}
       >
-        <button className="group flex flex-col gap-2 p-4 text-left">
-          <div className="flex items-center gap-2">
+        <button className="group flex flex-col gap-4 p-4 text-left">
+          <div className="flex items-center gap-4">
             <div className="flex h-4 w-4 items-center justify-center rounded-full outline outline-1 outline-darkGray group-hover:outline-darkCyan">
               <div
                 className={`${
@@ -42,17 +42,24 @@ const Selected = ({
                 } h-[10px] w-[10px] rounded-full`}
               ></div>
             </div>
-            <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-darkCyan">
-              {title}
-            </span>
+            <div className="flex flex-col">
+              <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-darkCyan">
+                {title}
+              </span>
+              {pledge && (
+                <span className="font-bold text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan">
+                  Pledge ${pledge} or more
+                </span>
+              )}
+            </div>
           </div>
-          {pledge && (
-            <span className="font-medium text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan">
-              Pledge ${pledge} or more
+          <p>{paragraph}</p>
+          {amount && (
+            <span className="flex items-center gap-2 text-2xl font-bold">
+              {amount}{" "}
+              <span className="text-base font-medium text-darkGray">left</span>
             </span>
           )}
-          <p>{paragraph}</p>
-          {amount && <span>{amount} left</span>}
         </button>
         {selected && input && (
           <div className="flex w-full flex-col gap-1 p-4">

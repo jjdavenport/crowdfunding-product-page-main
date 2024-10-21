@@ -25,7 +25,7 @@ const Complete = ({ onClose }) => {
 
         <div className="flex flex-col gap-3">
           <span className="text-xl font-bold">Thanks for your support!</span>
-          <p>
+          <p className="text-darkGray">
             Your pledge brings us one step closer to sharing Mastercraft Bamboo
             Monitor Riser worldwide. You will get an email once our campaign is
             completed.

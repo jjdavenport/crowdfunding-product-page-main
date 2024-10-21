@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        mobile: "url('./src/components/assets/image-hero-mobile.jpg')",
-        desktop: "url('./src/components/assets/image-hero-desktop.jpg')",
+        mobile: "url('../src/components/assets/image-hero-mobile.jpg')",
+        desktop: "url('../src/components/assets/image-hero-desktop.jpg')",
       },
       colors: {
         moderateCyan: "hsl(176, 50%, 47%)",

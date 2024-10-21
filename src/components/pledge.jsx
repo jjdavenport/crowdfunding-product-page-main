@@ -2,11 +2,11 @@ const Pledge = ({ title, paragraph, pledge, amount, onClick }) => {
   return (
     <>
       <li
-        className={`${amount === "0" ? "opacity-40" : "opacity-100"} flex flex-col gap-4 rounded-lg p-4 outline outline-1 outline-darkGray`}
+        className={`${amount === "0" ? "opacity-40" : "opacity-100"} flex flex-col gap-4 rounded-lg border-[1px] border-darkGray border-opacity-20 p-4`}
       >
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col">
           <span className="font-bold">{title}</span>
-          <span className="font-medium text-moderateCyan">
+          <span className="font-bold text-moderateCyan">
             Pledge {pledge} or more
           </span>
         </div>
