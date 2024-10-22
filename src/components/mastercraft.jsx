@@ -47,7 +47,7 @@ const MasterCraft = ({ onClick, desktop }) => {
               <span
                 className={`${bookmarked ? "text-moderateCyan" : "text-darkGray"} transform px-6 font-bold duration-300 ease-in-out`}
               >
-                Bookmark
+                {bookmarked ? "Bookmarked" : "Bookmark"}
               </span>
             </button>
           </div>

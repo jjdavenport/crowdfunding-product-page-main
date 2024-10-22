@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import Selected from "./selected";
 
-const Select = ({ onClose, onSelect, selected, onComplete, desktop }) => {
+const Select = ({
+  onClose,
+  onSelect,
+  selected,
+  onComplete,
+  desktop,
+  items,
+}) => {
   const [inputFocus, setInputFocus] = useState(null);
 
   useEffect(() => {
@@ -51,27 +58,27 @@ const Select = ({ onClose, onSelect, selected, onComplete, desktop }) => {
             />
             <Selected
               desktop={desktop}
-              selected={selected === "bamboo stand"}
-              onSelect={() => onSelect("bamboo stand")}
+              selected={selected === "item1"}
+              onSelect={() => onSelect("item1")}
               onClick={onComplete}
               title="Bamboo Stand"
               pledge="25"
               paragraph="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
               input={25}
-              amount={"101"}
+              amount={items.item1}
               inputFocus={inputFocus}
               setInputFocus={setInputFocus}
             />
             <Selected
               desktop={desktop}
-              selected={selected === "black edition"}
-              onSelect={() => onSelect("black edition")}
+              selected={selected === "item2"}
+              onSelect={() => onSelect("item2")}
               onClick={onComplete}
               title="Black Edition Stand"
               pledge="75"
               paragraph="You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
               input={75}
-              amount="64"
+              amount={items.item2}
               inputFocus={inputFocus}
               setInputFocus={setInputFocus}
             />

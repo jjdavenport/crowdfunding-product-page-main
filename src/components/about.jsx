@@ -1,6 +1,6 @@
 import Pledge from "./pledge";
 
-const About = ({ onClick }) => {
+const About = ({ onClick, items }) => {
   return (
     <>
       <article className="flex w-10/12 max-w-screen-md flex-col gap-10 rounded-xl bg-white p-8 shadow-md">
@@ -28,8 +28,8 @@ const About = ({ onClick }) => {
             paragraph="You get an ergonomic stand made of natural bamboo. You've helped us
             launch our promotional campaign, and you’ll be added to a special
             Backer member list."
-            amount="101"
-            onClick={() => onClick("bamboo stand")}
+            onClick={() => onClick("item1")}
+            amount={items.item1}
           />
           <Pledge
             title="Black Edition Stand"
@@ -37,8 +37,8 @@ const About = ({ onClick }) => {
             paragraph="You get a
             Black Special Edition computer stand and a personal thank you. You’ll be
             added to our Backer member list. Shipping is included."
-            amount="64"
-            onClick={() => onClick("black edition")}
+            onClick={() => onClick("item2")}
+            amount={items.item2}
           />
           <Pledge
             title="Mahogany Special Edition"

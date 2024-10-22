@@ -13,7 +13,11 @@ function App() {
   const [selected, setSelected] = useState(null);
   const [complete, setComplete] = useState(false);
   const [value, setValue] = useState(89914);
-  const [backers, SetBackers] = useState(5007);
+  const [backers, setBackers] = useState(5007);
+  const [items, setItems] = useState({
+    item1: 101,
+    item2: 64,
+  });
 
   const toggle = () => {
     setSelected(null);
@@ -31,7 +35,11 @@ function App() {
     setValue((prevVal) => prevVal + val);
     setSelect(false);
     setComplete(true);
-    SetBackers(backers + 1);
+    setBackers(backers + 1);
+    setItems((prev) => ({
+      ...prev,
+      [selected]: prev[selected] - 1,
+    }));
   };
 
   const reset = () => {
@@ -49,9 +57,10 @@ function App() {
           onClick={toggle}
         />
         <Backed backers={backers} value={value} />
-        <About onClick={onSelect} />
+        <About items={items} onClick={onSelect} />
         {select && (
           <Select
+            items={items}
             desktop={media}
             selected={selected}
             onComplete={onComplete}
