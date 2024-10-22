@@ -10,9 +10,9 @@ const Nav = ({ desktop, select, complete }) => {
   if (desktop) {
     return (
       <>
-        <nav className="item flex h-96 w-full justify-between bg-desktop p-10 text-white">
+        <nav className="item ~md/xl:~px-20/32 flex h-96 w-full justify-between bg-desktop p-10 text-white">
           <img className="h-6 object-contain" src={logo} />
-          <ul className="flex gap-4">
+          <ul className="flex gap-8">
             <li>
               <a href="#">About</a>
             </li>

@@ -3,20 +3,24 @@ import Pledge from "./pledge";
 const About = ({ onClick }) => {
   return (
     <>
-      <article className="flex w-10/12 flex-col gap-6 rounded-xl bg-white p-8 shadow-md">
-        <h2 className="text-2xl font-bold">About this project</h2>
-        <p className="text-darkGray">
-          The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
-          that elevates your screen to a more comfortable viewing height.
-          Placing your monitor at eye level has the potential to improve your
-          posture and make you more comfortable while at work, helping you stay
-          focused on the task at hand.
-        </p>
-        <p className="text-darkGray">
-          Featuring artisan craftsmanship, the simplicity of design creates
-          extra desk space below your computer to allow notepads, pens, and USB
-          sticks to be stored under the stand.
-        </p>
+      <article className="flex w-10/12 max-w-screen-md flex-col gap-10 rounded-xl bg-white p-8 shadow-md">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-xl font-bold text-black">About this project</h2>
+          <div className="flex flex-col gap-4">
+            <p className="text-darkGray">
+              The Mastercraft Bamboo Monitor Riser is a sturdy and stylish
+              platform that elevates your screen to a more comfortable viewing
+              height. Placing your monitor at eye level has the potential to
+              improve your posture and make you more comfortable while at work,
+              helping you stay focused on the task at hand.
+            </p>
+            <p className="text-darkGray">
+              Featuring artisan craftsmanship, the simplicity of design creates
+              extra desk space below your computer to allow notepads, pens, and
+              USB sticks to be stored under the stand.
+            </p>
+          </div>
+        </div>
         <ul className="flex flex-col gap-8">
           <Pledge
             title="Bamboo Stand"

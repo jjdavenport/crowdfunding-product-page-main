@@ -12,6 +12,7 @@ const Selected = ({
   selected,
   setInputFocus,
   inputFocus,
+  desktop,
 }) => {
   const [inputValue, setInputValue] = useState(input || 0);
 
@@ -25,21 +26,101 @@ const Selected = ({
     onClick(parseInt(inputValue, 10));
   };
 
+  if (desktop) {
+    return (
+      <>
+        <li
+          onClick={onSelect}
+          className={`${
+            amount === "0" ? "pointer-events-none opacity-40" : null
+          } ${selected ? "border-moderateCyan outline outline-[1px] outline-moderateCyan" : "border-darkGray border-opacity-40"} flex flex-col divide-y-2 rounded-lg border text-start`}
+        >
+          <button className="group flex flex-col gap-4 p-6 text-left focus:border-none">
+            <div className="flex gap-4">
+              <div>
+                <div className="flex h-5 w-5 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-darkCyan">
+                  <div
+                    className={`${
+                      selected ? "bg-moderateCyan" : null
+                    } h-3 w-3 rounded-full`}
+                  ></div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex w-full items-center">
+                  <div className="flex w-full justify-between">
+                    <div className="flex gap-2">
+                      <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-darkCyan">
+                        {title}
+                      </span>
+                      {pledge && (
+                        <span className="font-bold text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan">
+                          Pledge ${pledge} or more
+                        </span>
+                      )}
+                    </div>
+                    {amount && (
+                      <span className="flex items-center gap-2 text-xl font-bold">
+                        {amount}
+                        <span className="text-base font-medium text-darkGray">
+                          left
+                        </span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <p className="text-darkGray">{paragraph}</p>
+              </div>
+            </div>
+          </button>
+          {selected && input && (
+            <div className="flex w-full flex-col gap-1 p-6 md:flex-row md:items-center md:justify-between">
+              <span className="text-darkGray">Enter your pledge</span>
+              <div className="flex gap-4">
+                <label
+                  className={`${inputFocus === title ? "border-moderateCyan border-opacity-100" : "border-darkGray"} flex transform items-center gap-2 rounded-full border-2 border-opacity-40 px-4 py-2 text-darkGray duration-300 ease-in-out`}
+                >
+                  $
+                  <Cleave
+                    className="w-10 font-bold text-black caret-moderateCyan focus:outline-none"
+                    value={inputValue}
+                    options={{
+                      numeral: true,
+                      numeralThousandsGroupStyle: "thousand",
+                    }}
+                    onChange={change}
+                    onFocus={focus}
+                  />
+                </label>
+                <button
+                  className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white transition duration-300 ease-in-out hover:bg-darkCyan"
+                  onClick={complete}
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          )}
+        </li>
+      </>
+    );
+  }
+
   return (
     <>
       <li
         onClick={onSelect}
         className={`${
           amount === "0" ? "pointer-events-none opacity-40" : null
-        } ${selected ? "outline-moderateCyan" : "outline-darkGray"} flex flex-col gap-4 divide-y-2 rounded-lg text-start outline outline-2`}
+        } ${selected ? "border-moderateCyan outline outline-[1px] outline-moderateCyan" : "border-darkGray border-opacity-40"} flex flex-col gap-4 divide-y-2 rounded-lg border text-start`}
       >
-        <button className="group flex flex-col gap-4 p-4 text-left">
+        <button className="group flex flex-col gap-4 p-4 text-left focus:border-none">
           <div className="flex items-center gap-4">
-            <div className="flex h-4 w-4 items-center justify-center rounded-full outline outline-1 outline-darkGray group-hover:outline-darkCyan">
+            <div className="flex h-6 w-6 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-darkCyan">
               <div
                 className={`${
                   selected ? "bg-moderateCyan" : null
-                } h-[10px] w-[10px] rounded-full`}
+                } h-3 w-3 rounded-full`}
               ></div>
             </div>
             <div className="flex flex-col">
@@ -53,16 +134,16 @@ const Selected = ({
               )}
             </div>
           </div>
-          <p>{paragraph}</p>
+          <p className="text-darkGray">{paragraph}</p>
           {amount && (
             <span className="flex items-center gap-2 text-2xl font-bold">
-              {amount}{" "}
+              {amount}
               <span className="text-base font-medium text-darkGray">left</span>
             </span>
           )}
         </button>
         {selected && input && (
-          <div className="flex w-full flex-col gap-1 p-4">
+          <div className="flex w-full flex-col gap-1 p-4 md:flex-row md:items-center md:justify-between">
             <span>Enter your pledge</span>
             <div className="flex gap-4">
               <label

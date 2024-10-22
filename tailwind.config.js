@@ -1,7 +1,13 @@
+import fluid, { extract, screens } from "fluid-tailwind";
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js,jsx}", "./index.html"],
+  content: {
+    files: ["./src/**/*.{html,js,jsx}", "./index.html"],
+    extract,
+  },
   theme: {
+    screens,
     extend: {
       backgroundImage: {
         mobile: "url('../src/components/assets/image-hero-mobile.jpg')",
@@ -18,5 +24,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [fluid],
 };

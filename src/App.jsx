@@ -52,6 +52,7 @@ function App() {
         <About onClick={onSelect} />
         {select && (
           <Select
+            desktop={media}
             selected={selected}
             onComplete={onComplete}
             onSelect={onSelect}

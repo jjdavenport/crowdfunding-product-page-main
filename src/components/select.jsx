@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Selected from "./selected";
 
-const Select = ({ onClose, onSelect, selected, onComplete }) => {
+const Select = ({ onClose, onSelect, selected, onComplete, desktop }) => {
   const [inputFocus, setInputFocus] = useState(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <dialog
           open
-          className="relative flex max-h-[90%] w-full max-w-lg flex-col gap-4 overflow-y-auto rounded-lg bg-white p-8 shadow-lg"
+          className="relative flex max-h-[90%] w-full max-w-lg flex-col gap-4 overflow-y-auto rounded-lg bg-white p-8 shadow-lg md:max-w-screen-md"
         >
           <div className="flex justify-between">
             <h3 className="text-2xl font-bold">Back this project</h3>
@@ -37,8 +37,9 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
             Want to support us in bringing Mastercraft Bamboo Monitor Riser out
             into the world?
           </p>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-4 md:gap-6">
             <Selected
+              desktop={desktop}
               selected={selected === "no reward"}
               onSelect={() => onSelect("no reward")}
               onClick={onComplete}
@@ -49,6 +50,7 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
               setInputFocus={setInputFocus}
             />
             <Selected
+              desktop={desktop}
               selected={selected === "bamboo stand"}
               onSelect={() => onSelect("bamboo stand")}
               onClick={onComplete}
@@ -61,6 +63,7 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
               setInputFocus={setInputFocus}
             />
             <Selected
+              desktop={desktop}
               selected={selected === "black edition"}
               onSelect={() => onSelect("black edition")}
               onClick={onComplete}
@@ -73,6 +76,7 @@ const Select = ({ onClose, onSelect, selected, onComplete }) => {
               setInputFocus={setInputFocus}
             />
             <Selected
+              desktop={desktop}
               title="Mahogany Special Edition Pledge $200 or more"
               pledge="200"
               paragraph="You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
