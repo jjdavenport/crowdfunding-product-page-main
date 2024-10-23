@@ -42,7 +42,7 @@ const Selected = ({
           <button className="group flex flex-col gap-4 p-6 text-left focus:border-none">
             <div className="flex gap-4">
               <div>
-                <div className="flex h-5 w-5 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-darkCyan">
+                <div className="flex h-5 w-5 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-moderateCyan">
                   <div
                     className={`${
                       selected ? "scale-100 bg-moderateCyan" : "scale-0"
@@ -54,14 +54,14 @@ const Selected = ({
                 <div className="flex w-full items-center">
                   <div className="flex w-full justify-between">
                     <div className="flex gap-2">
-                      <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-darkCyan">
+                      <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-moderateCyan">
                         {title}
                       </span>
                       {pledge && (
                         <span
                           className={`${
                             selected ? "font-bold" : "font-medium"
-                          } text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan`}
+                          } text-moderateCyan transition duration-300 ease-in-out group-hover:text-moderateCyan`}
                         >
                           Pledge ${pledge} or more
                         </span>
@@ -99,7 +99,7 @@ const Selected = ({
                   >
                     $
                     <Cleave
-                      className="w-10 font-bold text-black caret-moderateCyan focus:outline-none"
+                      className="w-10 cursor-pointer font-bold text-black caret-moderateCyan focus:outline-none"
                       value={inputValue}
                       options={{
                         numeral: true,
@@ -134,7 +134,7 @@ const Selected = ({
       >
         <button className="group flex flex-col gap-4 p-4 text-left focus:border-none">
           <div className="flex items-center gap-4">
-            <div className="flex h-6 w-6 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-darkCyan">
+            <div className="flex h-6 w-6 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-moderateCyan">
               <div
                 className={`${
                   selected ? "bg-moderateCyan" : null
@@ -142,11 +142,11 @@ const Selected = ({
               ></div>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-darkCyan">
+              <span className="font-bold text-black transition duration-300 ease-in-out group-hover:text-moderateCyan">
                 {title}
               </span>
               {pledge && (
-                <span className="font-bold text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan">
+                <span className="font-bold text-moderateCyan transition duration-300 ease-in-out group-hover:text-moderateCyan">
                   Pledge ${pledge} or more
                 </span>
               )}
@@ -178,7 +178,7 @@ const Selected = ({
                 >
                   $
                   <Cleave
-                    className="w-1/2 font-bold text-black caret-moderateCyan focus:outline-none"
+                    className="w-1/2 cursor-pointer font-bold text-black caret-moderateCyan focus:outline-none"
                     value={inputValue}
                     options={{
                       numeral: true,

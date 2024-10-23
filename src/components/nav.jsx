@@ -7,10 +7,11 @@ import closeIcon from "./assets/icon-close-menu.svg";
 const Nav = ({ desktop, select, complete }) => {
   const [menu, setMenu] = useState(false);
   const toggle = () => setMenu(!menu);
+
   if (desktop) {
     return (
       <>
-        <nav className="item ~md/xl:~px-20/32 flex h-96 w-full justify-between bg-desktop p-10 text-white">
+        <nav className="item flex h-96 w-full justify-between bg-desktop p-10 font-medium text-white ~md/xl:~px-20/32">
           <img className="h-6 object-contain" src={logo} />
           <ul className="flex gap-8">
             <li>
@@ -42,7 +43,7 @@ const Nav = ({ desktop, select, complete }) => {
           <img className="object-contain" src={menu ? closeIcon : menuIcon} />
         </button>
       </nav>
-      {menu && <MobileMenu onClick={toggle} />}
+      {menu && <MobileMenu />}
     </>
   );
 };

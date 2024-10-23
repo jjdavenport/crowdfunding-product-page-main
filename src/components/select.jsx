@@ -57,7 +57,7 @@ const Select = ({
               </svg>
             </button>
           </div>
-          <p>
+          <p className="text-darkGray">
             Want to support us in bringing Mastercraft Bamboo Monitor Riser out
             into the world?
           </p>

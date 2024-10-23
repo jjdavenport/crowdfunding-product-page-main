@@ -8,7 +8,7 @@ const MasterCraft = ({ onClick, desktop }) => {
   if (desktop) {
     return (
       <>
-        <header className="relative -mt-20 flex w-10/12 flex-col items-center gap-8 rounded-xl bg-white p-8 py-10 text-center shadow-md md:max-w-screen-md">
+        <header className="relative -mt-20 flex w-10/12 flex-col items-center gap-8 rounded-lg bg-white p-8 py-10 text-center shadow-md md:max-w-screen-md md:py-12">
           <img className="absolute -top-8" src={logo} />
           <div className="flex w-full flex-col gap-4">
             <h1 className="w-11/12 text-xl font-bold md:w-full md:text-3xl">
@@ -45,7 +45,7 @@ const MasterCraft = ({ onClick, desktop }) => {
                 </g>
               </svg>
               <span
-                className={`${bookmarked ? "w-32 text-moderateCyan" : "w-28 text-darkGray"} transform font-bold duration-300 ease-in-out`}
+                className={`${bookmarked ? "w-36 text-moderateCyan" : "w-32 text-darkGray"} transform font-bold duration-300 ease-in-out`}
               >
                 {bookmarked ? "Bookmarked" : "Bookmark"}
               </span>

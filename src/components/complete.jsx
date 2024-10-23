@@ -20,18 +20,18 @@ const Complete = ({ onClose }) => {
         onClick={onClose}
       ></div>
       <dialog
-        className={`fixed inset-0 z-50 m-auto flex w-10/12 max-w-md flex-col items-center gap-8 rounded-lg bg-white p-8 text-center transition-all duration-300 ease-in-out ${
+        className={`fixed inset-0 z-50 m-auto flex w-10/12 max-w-md flex-col items-center gap-8 rounded-lg bg-white p-6 text-center transition-all duration-300 ease-in-out ${
           active ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >
         <img
-          className="w-2/12 object-contain"
+          className="w-16 object-contain md:w-20"
           src={checkIcon}
           alt="Check Icon"
         />
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col items-center gap-3">
           <span className="text-xl font-bold">Thanks for your support!</span>
-          <p className="text-darkGray">
+          <p className="w-11/12 text-darkGray md:w-full">
             Your pledge brings us one step closer to sharing Mastercraft Bamboo
             Monitor Riser worldwide. You will get an email once our campaign is
             completed.

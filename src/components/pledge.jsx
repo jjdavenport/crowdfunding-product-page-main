@@ -6,7 +6,7 @@ const Pledge = ({ title, paragraph, pledge, amount, onClick }) => {
       >
         <div className="flex flex-col md:flex-row md:justify-between">
           <span className="font-bold md:text-xl">{title}</span>
-          <span className="font-bold text-moderateCyan">
+          <span className="font-medium text-moderateCyan">
             Pledge {pledge} or more
           </span>
         </div>
