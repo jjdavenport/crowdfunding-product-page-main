@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import checkIcon from "./assets/icon-check.svg";
 
 const Complete = ({ onClose }) => {
+  const [active, setActive] = useState(false);
+
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
+    setActive(true);
 
     return () => {
       document.body.classList.remove("overflow-hidden");
@@ -16,13 +19,16 @@ const Complete = ({ onClose }) => {
         className="fixed inset-0 z-40 bg-black bg-opacity-50"
         onClick={onClose}
       ></div>
-      <dialog className="fixed inset-0 z-50 m-auto flex w-10/12 max-w-md flex-col items-center gap-8 rounded-lg bg-white p-8 text-center">
+      <dialog
+        className={`fixed inset-0 z-50 m-auto flex w-10/12 max-w-md flex-col items-center gap-8 rounded-lg bg-white p-8 text-center transition-all duration-300 ease-in-out ${
+          active ? "scale-100 opacity-100" : "scale-95 opacity-0"
+        }`}
+      >
         <img
           className="w-2/12 object-contain"
           src={checkIcon}
           alt="Check Icon"
         />
-
         <div className="flex flex-col gap-3">
           <span className="text-xl font-bold">Thanks for your support!</span>
           <p className="text-darkGray">

@@ -33,7 +33,11 @@ const Selected = ({
           onClick={onSelect}
           className={`${
             amount === "0" ? "pointer-events-none opacity-40" : null
-          } ${selected ? "border-moderateCyan outline outline-[1px] outline-moderateCyan" : "border-darkGray border-opacity-40"} flex flex-col divide-y-2 rounded-lg border text-start`}
+          } ${
+            selected
+              ? "border-moderateCyan outline outline-[1px] outline-moderateCyan"
+              : "border-darkGray border-opacity-40"
+          } flex flex-col divide-y-2 rounded-lg border text-start`}
         >
           <button className="group flex flex-col gap-4 p-6 text-left focus:border-none">
             <div className="flex gap-4">
@@ -41,8 +45,8 @@ const Selected = ({
                 <div className="flex h-5 w-5 transform items-center justify-center rounded-full border border-darkGray border-opacity-20 duration-300 ease-in-out hover:border-opacity-100 group-hover:border-darkCyan">
                   <div
                     className={`${
-                      selected ? "bg-moderateCyan" : null
-                    } h-3 w-3 rounded-full`}
+                      selected ? "scale-100 bg-moderateCyan" : "scale-0"
+                    } h-3 w-3 transform rounded-full transition-transform duration-300 ease-in-out`}
                   ></div>
                 </div>
               </div>
@@ -54,7 +58,11 @@ const Selected = ({
                         {title}
                       </span>
                       {pledge && (
-                        <span className="font-bold text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan">
+                        <span
+                          className={`${
+                            selected ? "font-bold" : "font-medium"
+                          } text-moderateCyan transition duration-300 ease-in-out group-hover:text-darkCyan`}
+                        >
                           Pledge ${pledge} or more
                         </span>
                       )}
@@ -73,34 +81,44 @@ const Selected = ({
               </div>
             </div>
           </button>
-          {selected && input && (
-            <div className="flex w-full flex-col gap-1 p-6 md:flex-row md:items-center md:justify-between">
-              <span className="text-darkGray">Enter your pledge</span>
-              <div className="flex gap-4">
-                <label
-                  className={`${inputFocus === title ? "border-moderateCyan border-opacity-100" : "border-darkGray"} flex transform items-center gap-2 rounded-full border-2 border-opacity-40 px-4 py-2 text-darkGray duration-300 ease-in-out`}
-                >
-                  $
-                  <Cleave
-                    className="w-10 font-bold text-black caret-moderateCyan focus:outline-none"
-                    value={inputValue}
-                    options={{
-                      numeral: true,
-                      numeralThousandsGroupStyle: "thousand",
-                    }}
-                    onChange={change}
-                    onFocus={focus}
-                  />
-                </label>
-                <button
-                  className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white transition duration-300 ease-in-out hover:bg-darkCyan"
-                  onClick={complete}
-                >
-                  Continue
-                </button>
+          <div
+            className={`transition-max-height overflow-hidden duration-700 ease-in ${
+              selected ? "max-h-40" : "max-h-0"
+            }`}
+          >
+            {selected && input && (
+              <div className="flex w-full flex-col gap-1 p-6 md:flex-row md:items-center md:justify-between">
+                <span className="text-darkGray">Enter your pledge</span>
+                <div className="flex gap-4">
+                  <label
+                    className={`${
+                      inputFocus === title
+                        ? "border-moderateCyan border-opacity-100"
+                        : "border-darkGray border-opacity-40"
+                    } flex transform items-center gap-2 rounded-full border-2 px-4 py-2 text-darkGray duration-300 ease-in-out`}
+                  >
+                    $
+                    <Cleave
+                      className="w-10 font-bold text-black caret-moderateCyan focus:outline-none"
+                      value={inputValue}
+                      options={{
+                        numeral: true,
+                        numeralThousandsGroupStyle: "thousand",
+                      }}
+                      onChange={change}
+                      onFocus={focus}
+                    />
+                  </label>
+                  <button
+                    className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white transition duration-300 ease-in-out hover:bg-darkCyan"
+                    onClick={complete}
+                  >
+                    Continue
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </li>
       </>
     );
@@ -142,34 +160,44 @@ const Selected = ({
             </span>
           )}
         </button>
-        {selected && input && (
-          <div className="flex w-full flex-col gap-1 p-4 md:flex-row md:items-center md:justify-between">
-            <span>Enter your pledge</span>
-            <div className="flex gap-4">
-              <label
-                className={`${inputFocus === title ? "outline-moderateCyan" : "outline-darkGray"} flex items-center gap-2 rounded-full px-4 py-2 text-darkGray outline outline-2`}
-              >
-                $
-                <Cleave
-                  className="w-20 font-bold text-black caret-moderateCyan focus:outline-none"
-                  value={inputValue}
-                  options={{
-                    numeral: true,
-                    numeralThousandsGroupStyle: "thousand",
-                  }}
-                  onChange={change}
-                  onFocus={focus}
-                />
-              </label>
-              <button
-                className="rounded-full bg-moderateCyan px-4 py-2 font-bold text-white transition duration-300 ease-in-out hover:bg-darkCyan"
-                onClick={complete}
-              >
-                Continue
-              </button>
+        <div
+          className={`transition-max-height overflow-hidden duration-700 ease-in ${
+            selected ? "max-h-40" : "max-h-0"
+          }`}
+        >
+          {selected && input && (
+            <div className="flex w-full flex-col gap-2 p-4 text-center md:flex-row md:items-center md:justify-between">
+              <span className="text-darkGray">Enter your pledge</span>
+              <div className="flex gap-4">
+                <label
+                  className={`${
+                    inputFocus === title
+                      ? "border-moderateCyan border-opacity-100"
+                      : "border-darkGray border-opacity-40"
+                  } flex transform items-center gap-2 rounded-full border-2 px-4 py-2 text-darkGray duration-300 ease-in-out`}
+                >
+                  $
+                  <Cleave
+                    className="w-1/2 font-bold text-black caret-moderateCyan focus:outline-none"
+                    value={inputValue}
+                    options={{
+                      numeral: true,
+                      numeralThousandsGroupStyle: "thousand",
+                    }}
+                    onChange={change}
+                    onFocus={focus}
+                  />
+                </label>
+                <button
+                  className="w-1/2 rounded-full bg-moderateCyan px-4 py-2 font-bold text-white transition duration-300 ease-in-out hover:bg-darkCyan"
+                  onClick={complete}
+                >
+                  Continue
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </li>
     </>
   );

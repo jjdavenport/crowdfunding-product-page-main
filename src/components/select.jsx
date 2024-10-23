@@ -10,26 +10,43 @@ const Select = ({
   items,
 }) => {
   const [inputFocus, setInputFocus] = useState(null);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
+    setActive(true);
 
     return () => {
       document.body.classList.remove("overflow-hidden");
+      setActive(false);
     };
   }, []);
 
   return (
     <>
-      <div className="fixed inset-0 z-40 bg-black bg-opacity-50"></div>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div
+        className={`fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${
+          active ? "opacity-100" : "opacity-0"
+        }`}
+      ></div>
+      <div
+        className={`fixed inset-0 z-50 flex transform items-center justify-center p-4 transition-all duration-300 ease-in-out ${
+          active ? "scale-100 opacity-100" : "scale-95 opacity-0"
+        }`}
+      >
         <dialog
           open
           className="relative flex max-h-[90%] w-full max-w-lg flex-col gap-4 overflow-y-auto rounded-lg bg-white p-8 shadow-lg md:max-w-screen-md"
         >
           <div className="flex justify-between">
             <h3 className="text-2xl font-bold">Back this project</h3>
-            <button onClick={onClose} className="group">
+            <button
+              onClick={() => {
+                onClose();
+                setActive(false);
+              }}
+              className="group"
+            >
               <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
                 <path
                   className="fill-darkGray transition duration-300 ease-in-out group-hover:fill-black"

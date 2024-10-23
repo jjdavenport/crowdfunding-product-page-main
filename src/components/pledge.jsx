@@ -12,8 +12,9 @@ const Pledge = ({ title, paragraph, pledge, amount, onClick }) => {
         </div>
         <p className="text-darkGray">{paragraph}</p>
         <div className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-0">
-          <span className="text-3xl font-bold">
-            {amount} <span className="text-base text-darkGray">left</span>
+          <span className="flex items-center gap-1 text-3xl font-bold">
+            {amount}
+            <span className="text-base font-medium text-darkGray">left</span>
           </span>
           <button
             onClick={onClick}
